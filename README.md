@@ -16,3 +16,22 @@ fq2psmcfa -q20 ${describer}.fq.gz > ${describer}.psmcfa
 ##### We're using sed to remove suffix to iterate over input names and allow different suffixes for outputs
 ##### run script with, where `-j` controls number of cpus :
 `ls *.fq.gz | parallel -j4 -k bash script.sh {}`
+
+
+#### Parallelize a Bash FOR Loop
+##### Sample task (good system for compex tasks or nested loops)
+```
+task(){
+   sleep 0.5; echo "$1";
+}
+```
+##### Parallel runs in N-process batches
+```
+N=4
+(
+for thing in a b c d e f g; do 
+   ((i=i%N)); ((i++==0)) && wait
+   task "$thing" & 
+done
+)
+```
