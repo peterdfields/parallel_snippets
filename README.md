@@ -19,7 +19,7 @@ fq2psmcfa -q20 ${describer}.fq.gz > ${describer}.psmcfa
 
 
 #### Parallelize a Bash FOR Loop
-##### Sample task (good system for compex tasks or nested loops)
+##### Sample task (good system for complex tasks or nested loops)
 ```
 task(){
    sleep 0.5; echo "$1";
