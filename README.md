@@ -2,7 +2,8 @@
 
 #### Index all the bam files in a directory using samtools
 `ls *.bam | parallel samtools view -b -q 23 '{}'`
-
+#### Subset all pileup files for a given contig, where `-j` controls number of cpus
+`ls *pileup | parallel -j8 'grep $contig {} > {.}.tmp'`
 #### Use a custom script run pipeline with parallel
 ##### script has form (example taken from run fq2psmcfa utility from PSMC package):
 ```
