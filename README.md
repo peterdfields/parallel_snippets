@@ -1,7 +1,7 @@
 ## Repo for tracking useful snippets which utilize parallel to speed things up!
 
 #### Index all the bam files in a directory using samtools
-`ls *.bam | parallel samtools view -b -q 23 '{}'`
+`ls *.bam | parallel samtools index '{}'`
 #### Subset all pileup files for a given contig, where `-j` controls number of cpus
 `ls *pileup | parallel -j8 'grep $contig {} > {.}.tmp'`
 #### Use a custom script run pipeline with parallel
