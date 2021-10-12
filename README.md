@@ -36,3 +36,11 @@ for thing in a b c d e f g; do
 done
 )
 ```
+
+##### Using pigz to compress directory (see https://biowize.wordpress.com/2012/10/18/compression-with-pigz/)
+`tar cf - $DATA/*.fastq | pigz -p 16 > $WD/RawReads.tar.gz`
+
+##### And decompress with pigz
+`pigz -p 16 -d -c $WD/RawReads.tar.gz | tar x`
+
+
