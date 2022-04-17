@@ -43,4 +43,6 @@ done
 ##### And decompress with pigz
 `pigz -p 16 -d -c $WD/RawReads.tar.gz | tar x`
 
+##### Run script multiple times without needing to apply different arguments (see https://serverfault.com/questions/513789/using-parallel-to-run-script-without-input)
+`seq 3 | parallel -n0 Rscript runmodel_15b_dvariable_v3.R`
 
